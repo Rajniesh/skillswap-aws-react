@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 
+import "./App.css";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Messages from "./pages/Messages";
+import Register from "./pages/Register";
+import Upload from "./pages/Upload";
+import NotFound from "./pages/NotFound";
+import Community from "./pages/Community";
+import Navbar from "./components/Navbar";
+import ProfilePage from "./pages/ProfilePage";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          g
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar /> {/* This will navbar on everypage*/}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/messages" element={<Messages />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
